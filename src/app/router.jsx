@@ -4,11 +4,11 @@ import { BrowserRouter, Switch, Route, Redirect, hashHistory } from 'react-route
 import Home from '../pages/home';
 
 export default props => (
-    <BrowserRouter history={hashHistory}>
+    <BrowserRouter history={ hashHistory }>
         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={Home} />
-            <Route path="/contact" component={Home} />
+            <Route exact path="/" component={ Home } />
+            <Route path="/about" component={ Home } />
+            <Route path="/contact" component={ Home } />
             <Redirect from="*" to="/" />
             {/* when none of the above match, <NoMatch> will be rendered */}
             {/* <Route component={NoMatch} /> */}
