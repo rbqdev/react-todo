@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-export default class App extends Component {
+export default class Home extends Component {
     render(){
         return (
             <div>
-                <h1>My App TODO React</h1>
+                <h1>Todo List</h1>
             </div>
         );
     }
