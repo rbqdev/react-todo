@@ -3,6 +3,11 @@
  * Mobile First
  */
 
+.app--content {
+    padding: 20px;
+    height: calc(100vh - 50px);
+}
+
 .app--bottom {
     .menu-bottom {
         width: 100%;
@@ -22,6 +27,11 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
+        }
+
+        button {
+            border: 0;
+            background: transparent;
         }
     }
 }

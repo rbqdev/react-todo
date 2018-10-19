@@ -3,7 +3,7 @@ import '../assets/css/main.scss';
 
 import React from 'react';
 import Router from './router';
-import MenuBottom from '../layouts/menubottom';
+import MenuBottom from '../layouts/MenuBottom';
 
 export default props => (
     <div className="app-container">
