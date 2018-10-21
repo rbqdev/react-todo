@@ -4,12 +4,7 @@ export default class Home extends Component {
     render(){
         return (
             <div className="menu-bottom">
-                <div className="btn-start-wrap">
-                    <button type="button"><ion-icon name="search"></ion-icon></button>
-                </div>
-                <div className="btn-end-wrap">
-                    <button type="button"><ion-icon name="add"></ion-icon></button>
-                </div>
+                <p>Todo App</p>
             </div>
         );
     }

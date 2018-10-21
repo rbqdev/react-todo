@@ -3,9 +3,19 @@
  * Mobile First
  */
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Oxygen, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .app--content {
-    padding: 20px;
-    height: calc(100vh - 50px);
+    // padding: 20px;
+    // height: calc(100vh - 50px);
 }
 
 .app--bottom {
