@@ -1,25 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-export default props => {
+export default class Header extends Component {
 
-    const itemActive = ( page ) => {
-        return window.location.pathname === page ? 'active' : '';
+    render(){
+        return (
+            <div className="page-header">
+                <div className="page--menu">
+                    <ul>
+                        <li>
+                            <Link to='/'>Home</Link>
+                        </li>
+                        <li>
+                            <Link to='/about'>About</Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        );
     }
 
-    return (
-        <div className="page-header">
-            <div className="page--menu">
-                <ul>
-                    <li className={ itemActive('/') }>
-                        <Link to={'/'}>Home</Link>
-                    </li>
-                    <li className={ itemActive('/about') }>
-                        <Link to={'/about'}>About</Link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    );
+    itemActive( page ) {
+        let path = window.location.pathname;
+        return  path === page ? 'active' : '';
+    }
 
 }
