@@ -1,17 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
+import TodoForm from './TodoForm/TodoForm';
 
-class Todo extends Component {
-    render(){
+class Todo extends React.Component {
+    render() {
         return (
             <div className="todo">
-                <div className="todo--bottom">
-                    <div className="btn-start-wrap">
-                        <button type="button"><ion-icon name="search"></ion-icon></button>
-                    </div>
-                    <div className="btn-end-wrap">
-                        <button type="button"><ion-icon name="add"></ion-icon></button>
-                    </div>
+                <div className="todo--header">
+                    <TodoForm />
                 </div>
+                <div className="todo--content" />
             </div>
         );
     }
