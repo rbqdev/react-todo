@@ -1,43 +1,30 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
+    env: {
+        es6: true,
+        browser: true,
+        node: true,
     },
-    "globals": {
-        "window": true,
-        "define": true,
-        "require": true,
-        "module": true,
-    },
-    "extends": "eslint:recommended",
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true,
-            "es6": true,
+    extends: ['airbnb', 'plugin:jest/recommended', 'jest-enzyme'],
+    plugins: ['babel', 'import', 'jsx-a11y', 'react', 'prettier'],
+    parser: 'babel-eslint',
+    parserOptions: {
+        ecmaVersion: 6,
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true,
         },
-        "sourceType": "module"
     },
-    "plugins": [
-        "babel",
-        "react"
-    ],
-    "rules": {
-        "indent": ["error", 4],
-        "linebreak-style": [ "error", "unix" ],
-        "quotes": [ "error", "single" ],
-        "semi": [ "error", "always"],
-        "react/jsx-boolean-value": 0,
-        "react/jsx-closing-bracket-location": 1,
-        "react/jsx-curly-spacing": [2, "always"],
-        "react/jsx-indent-props": [1, 2],
-        "react/jsx-no-undef": 1,
-        "react/jsx-uses-react": 1,
-        "react/jsx-uses-vars": 1,
-        "react/wrap-multilines": 1,
-        "react/react-in-jsx-scope": 1,
-        "react/prefer-es6-class": 1,
-        "react/jsx-no-bind": 1,
-    }
+    rules: {
+        semi: ['error', 'always'],
+        indent: [2, 4],
+        'react/jsx-filename-extension': [
+            'error',
+            {
+                extensions: ['.js', '.jsx'],
+            },
+        ], // airbnb is using .jsx
+        'global-require': 'off',
+        'import/prefer-default-export': 'off',
+        'no-unused-expressions': ['error', { allowTaggedTemplates: true }],
+    },
 };
