@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderStyled = styled.div`
+export const HeaderStyled = styled.header`
     padding: 16px;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@ export const HeaderStyled = styled.div`
                 text-decoration: none;
             }
 
-            &.active {
+            &.selected {
                 a {
                     color: #fff;
                     font-weight: 600;
