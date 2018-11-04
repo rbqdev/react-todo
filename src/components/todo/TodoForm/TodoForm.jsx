@@ -6,13 +6,13 @@ class TodoForm extends React.Component {
         return (
             <TodoFormStyled className="form">
                 <div className="form__input">
-                    <input type="text" />
+                    <input type="text" placeholder="Write your task..." />
                 </div>
                 <div className="form__actions">
-                    <button>
+                    <button type="button" className="create">
                         <ion-icon name="add" />
                     </button>
-                    <button>
+                    <button type="button" className="update">
                         <ion-icon name="create" />
                     </button>
                 </div>

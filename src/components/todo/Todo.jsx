@@ -1,15 +1,16 @@
 import React from 'react';
+import TodoStyled from './Todo.styled';
 import TodoForm from './TodoForm/TodoForm';
 
 class Todo extends React.Component {
     render() {
         return (
-            <div className="todo">
+            <TodoStyled className="todo">
                 <div className="todo--header">
                     <TodoForm />
                 </div>
                 <div className="todo--content" />
-            </div>
+            </TodoStyled>
         );
     }
 }

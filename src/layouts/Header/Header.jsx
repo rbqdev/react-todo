@@ -6,22 +6,22 @@ export default class Header extends Component {
     render() {
         return (
             <HeaderStyled className="app__header">
-                <div className="app__menu">
+                <nav className="app__menu">
                     <ul>
-                        <li className={this.getActiveItem('/')}>
+                        <li className={this.getItemSelected('/')}>
                             <Link to="/">Home</Link>
                         </li>
-                        <li className={this.getActiveItem('/about')}>
+                        <li className={this.getItemSelected('/about')}>
                             <Link to="/about">About</Link>
                         </li>
                     </ul>
-                </div>
+                </nav>
             </HeaderStyled>
         );
     }
 
-    getActiveItem(page) {
+    getItemSelected(page) {
         const path = window.location.pathname;
-        return path === page ? 'active' : '';
+        return path === page ? 'selected' : '';
     }
 }
