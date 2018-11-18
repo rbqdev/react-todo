@@ -11,6 +11,7 @@ export const TodoFormStyled = styled.div`
         input {
             padding: 15px 20px;
             width: 100%;
+            background: #f9f9f9;
             border: 1px solid #ccc;
             border-radius: 3px;
             outline: 0;
@@ -29,17 +30,25 @@ export const TodoFormStyled = styled.div`
     }
     .form__actions {
         height: 100%;
-        margin-left: 10px;
+        margin-left: 5px;
 
         button {
             margin: 0 2px;
-            padding: 7px 12px;
-            background: #555;
-            color: #fff;
+            padding: 14px;
+            background: #eee;
+            color: #888;
             border-radius: 3px;
-            min-width: 50px;
+            min-width: 100px;
             cursor: pointer;
+            pointer-events: none;
+            -webkit-transition: 0.2s all ease-out;
             transition: 0.2s all ease-out;
+
+            &.enabled {
+                background: #16171a;
+                color: #fff;
+                pointer-events: initial;
+            }
 
             &:hover {
                 background: #222;
