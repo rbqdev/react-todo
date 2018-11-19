@@ -9,7 +9,6 @@ class TodoItem extends React.Component {
         super(props);
 
         this.state = {
-            itemChecked: false,
             optionsStatus: false,
             isPreview: (this.props.preview) ? true : false
         }
@@ -24,7 +23,7 @@ class TodoItem extends React.Component {
         return (
             <div className="todo-item__checkbox">
                 <input type="checkbox" onChange={() => this.checkItem()} />
-                <ion-icon name={this.state.itemChecked ? 'checkbox' : 'square-outline'} />
+                <ion-icon name={this.props.checked ? 'checkbox' : 'square-outline'} />
             </div>
         )
     }
@@ -81,7 +80,8 @@ class TodoItem extends React.Component {
     }
 
     checkItem() {
-        this.setState({ itemChecked: !this.state.itemChecked });
+        // this.props.checked = true;
+        // this.setState({ itemChecked: !this.state.itemChecked });
     }
 
     toggleOptionsActions(data) {
@@ -102,7 +102,7 @@ class TodoItem extends React.Component {
     getClassesTodoItem() {
         return ClassNames({
             'todo-item': true,
-            'todo-item--checked': this.state.itemChecked,
+            'todo-item--checked': this.props.checked,
             'todo-item--preview': this.state.isPreview
         });
     }
