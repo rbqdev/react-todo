@@ -7,7 +7,9 @@ export default class About extends Component {
                 <div className="page__title">
                     <h1>About</h1>
                 </div>
-                <div className="page__content" />
+                <div className="page__content">
+                    <p>Just a Router's Page</p>
+                </div>
             </div>
         );
     }

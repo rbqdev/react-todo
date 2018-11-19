@@ -10,12 +10,15 @@ class Todo extends React.Component {
         super();
 
         this.state = {
-            todoTitle: '',
+            todoText: '',
             todoList: []
         };
+    }
 
-        this.addTodoItem = this.addTodoItem.bind(this);
-        this.updateTodoTitle = this.updateTodoTitle.bind(this);
+    componentDidMount() {
+        document.addEventListener('clear-preview', () => {
+            this.clearTodoText();
+        });
     }
 
     render() {
@@ -23,39 +26,49 @@ class Todo extends React.Component {
             <TodoStyled className="todo">
                 <div className="todo__header">
                     <TodoForm
-                        triggerAddTodoItem={this.addTodoItem}
-                        triggerUpdatePreviewParent={this.updateTodoTitle}
+                        triggerAddTodoItem={this.addTodoItem.bind(this)}
+                        triggerUpdatePreview={this.updatePreviewTodoText.bind(this)}
                     />
                 </div>
                 <div className="todo__content">
-
-                    <If condition={this.state.todoTitle.length > 0}>
-                        <TodoItem title={this.state.todoTitle} preview />
+                    <If condition={this.state.todoText.length > 0}>
+                        <TodoItem text={this.state.todoText} preview />
                     </If>
 
                     {this.state.todoList.map((todo, index) => (
-                        <TodoItem title={todo.title} key={index + 1} id={index + 1} />
+                        <TodoItem
+                            text={todo.text}
+                            key={index + 1}
+                            id={index + 1}
+                            triggerDeleteTodoItem={() => this.deleteTodoItem(index)}
+                        />
                     ))}
-
                 </div>
             </TodoStyled>
         );
     }
 
     addTodoItem() {
-        let todo = {
-            title: this.state.todoTitle
-        };
         this.setState({
-            todoList: [todo, ...this.state.todoList],
-            todoTitle: ''
+            todoList: [{ text: this.state.todoText }, ...this.state.todoList],
+            todoText: ''
         });
         // Trigger event to clear Form's input on <TodoForm />
         document.dispatchEvent(new Event('clear-input'));
     }
 
-    updateTodoTitle(value) {
-        this.setState({ todoTitle: value });
+    deleteTodoItem(index) {
+        this.setState({
+            todoList: this.state.todoList.filter((item, key) => key !== index)
+        });
+    }
+
+    updatePreviewTodoText(value) {
+        this.setState({ todoText: value });
+    }
+
+    clearTodoText() {
+        this.setState({ todoText: '' });
     }
 }
 

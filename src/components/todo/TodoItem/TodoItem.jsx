@@ -30,11 +30,7 @@ class TodoItem extends React.Component {
     }
 
     renderLabelPreview() {
-        return (
-            <div className="todo-item__preview-label">
-                Preview
-            </div>
-        )
+        return (<div className="todo-item--preview-label"> Preview </div>)
     }
 
     render() {
@@ -49,8 +45,8 @@ class TodoItem extends React.Component {
                             : this.renderLabelPreview()
                     }
 
-                    <div className="todo-item__title">
-                        <h2>{this.props.title || 'No title for this task!'}</h2>
+                    <div className="todo-item__text">
+                        <h2>{this.props.text || 'No text for this task!'}</h2>
                     </div>
 
                     <If condition={!this.state.isPreview}>
@@ -69,7 +65,7 @@ class TodoItem extends React.Component {
                                     </button>
                                 </li>
                                 <li>
-                                    <button className="delete">
+                                    <button className="delete" onClick={this.props.triggerDeleteTodoItem}>
                                         <ion-icon name="trash" />
                                         <span>Delete</span>
                                     </button>
@@ -99,20 +95,24 @@ class TodoItem extends React.Component {
     getClassesItemOptions() {
         return ClassNames({
             'todo-item__actions': true,
-            'options-visible': this.state.optionsStatus,
+            'options-visible': this.state.optionsStatus
         });
     }
 
     getClassesTodoItem() {
         return ClassNames({
             'todo-item': true,
-            'todo-item__preview': this.state.isPreview
+            'todo-item--checked': this.state.itemChecked,
+            'todo-item--preview': this.state.isPreview
         });
     }
 
     handleClickOutsideOptions(classID) {
         document.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('overlay-options-click'))
+            let conditionValid = (
+                !e.target.classList.contains('overlay-options-click')
+            );
+            if (conditionValid)
                 this.toggleOptionsActions({ status: false });
         });
     }
