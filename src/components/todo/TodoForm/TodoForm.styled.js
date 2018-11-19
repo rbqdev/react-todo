@@ -7,6 +7,7 @@ export const TodoFormStyled = styled.div`
 
     .form__input {
         flex-grow: 1;
+        position: relative;
 
         input {
             padding: 15px 20px;
@@ -26,6 +27,44 @@ export const TodoFormStyled = styled.div`
             &::-moz-placeholder { color: #ccc; }
             &:-ms-input-placeholder { color: #ccc; }
             &:-moz-placeholder { color: #ccc; }
+        }
+
+        .undo {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 40px;
+            background: #f4f4f4;
+            color: #888;
+            border-radius: 3px;
+            cursor: pointer;
+
+            .tooltip {
+                position: absolute;
+                white-space: nowrap;
+                text-transform: uppercase;
+                background: #333;
+                color: #fff;
+                font-size: 8px;
+                font-weight: 600;
+                padding: 2px 5px;
+                border-radius: 3px;
+                bottom: 100%;
+                left: 50%;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(-50%);
+                transition: all 0.2s ease-out;
+            }
+
+            &:hover {
+                .tooltip {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
         }
     }
     .form__actions {
@@ -51,7 +90,7 @@ export const TodoFormStyled = styled.div`
             }
 
             &:hover {
-                background: #222;
+                background: #555;
             }
 
             ion-icon {

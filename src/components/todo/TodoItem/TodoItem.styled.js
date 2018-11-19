@@ -4,7 +4,7 @@ export const TodoItemStyled = styled.article`
 
     position: relative;
 
-    &.todo-item__preview {
+    &.todo-item--preview {
         opacity: 0.5;
         background: #f9f9f9;
     }
@@ -42,7 +42,7 @@ export const TodoItemStyled = styled.article`
         }
     }
 
-    .todo-item__preview-label {
+    .todo-item--preview-label {
         margin: 0 18px;
         background: black;
         padding: 3px 8px;
@@ -53,12 +53,19 @@ export const TodoItemStyled = styled.article`
         border-radius: 3px;
     }
 
-    .todo-item__title {
+    .todo-item__text {
         flex-grow: 1;
 
         h2 {
             font-size: 16px;
             font-weight: 400;
+        }
+    }
+
+    &.todo-item--checked {
+        .todo-item__text {
+            text-decoration: line-through;
+            font-style: italic;
         }
     }
 
