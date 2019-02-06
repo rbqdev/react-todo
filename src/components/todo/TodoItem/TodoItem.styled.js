@@ -146,7 +146,9 @@ export const TodoItemStyled = styled.article`
 
                 span {
                     text-transform: uppercase;
-                    font-size: 12px;
+                    font-size: 10px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
                 }
 
                 ion-icon {

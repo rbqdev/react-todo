@@ -19,19 +19,6 @@ class TodoItem extends React.Component {
             this.handleClickOutsideOptions();
     }
 
-    renderCheckbox() {
-        return (
-            <div className="todo-item__checkbox">
-                <input type="checkbox" onChange={() => this.checkItem()} />
-                <ion-icon name={this.props.checked ? 'checkbox' : 'square-outline'} />
-            </div>
-        )
-    }
-
-    renderLabelPreview() {
-        return (<div className="todo-item--preview-label"> Preview </div>)
-    }
-
     render() {
         return (
             <TodoItemStyled id={this.props.id + '-item'} className={this.getClassesTodoItem()}>
@@ -78,6 +65,17 @@ class TodoItem extends React.Component {
             </TodoItemStyled>
         );
     }
+
+    renderCheckbox = () => (
+        <div className="todo-item__checkbox">
+            <input type="checkbox" onChange={() => this.checkItem()} />
+            <ion-icon name={this.props.checked ? 'checkbox' : 'square-outline'} />
+        </div>
+    )
+
+    renderLabelPreview = () => (
+        <div className="todo-item--preview-label"> Preview </div>
+    )
 
     checkItem() {
         // this.props.checked = true;
