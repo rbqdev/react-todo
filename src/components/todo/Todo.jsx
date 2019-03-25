@@ -24,7 +24,7 @@ class Todo extends React.Component {
     }
 
     componentWillReceiveProps(props) {
-        this.updateTodoList(props);
+        this.setStateTodoList(props);
     }
 
     render() {
@@ -86,7 +86,7 @@ class Todo extends React.Component {
         }
     }
 
-    updateTodoList(props) {
+    setStateTodoList(props) {
         const { todos } = props;
         if (todos && todos.allTodoes) {
             this.setState({
