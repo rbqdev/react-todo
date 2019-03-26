@@ -5,8 +5,10 @@ import Router from './Router';
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from '../providers/apollo';
 
-export default () => (
+const App = () => (
     <ApolloProvider client={ApolloClient}>
         <Router />
     </ApolloProvider>
 );
+
+export default App;
