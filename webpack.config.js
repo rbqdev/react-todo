@@ -10,7 +10,7 @@ module.exports = {
     mode: mode ? 'development' : 'production',
     entry: './src/index.js',
     output: {
-        path: `${__dirname}/public`,
+        path: `${__dirname}/docs`,
         filename: './bundle.js',
     },
     devServer: {
